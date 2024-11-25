@@ -23,6 +23,7 @@ class Admin extends Controller
                 } else {
                     if (password_verify($_POST['clave'], $data['clave'])) {
                         $_SESSION['email'] = $data['correo'];
+                        $_SESSION['nombre_usuario'] = $data['nombres'];
                         $respuesta = array('msg' => 'datos correctos ingresados', 'icono' => 'success');
                     } else {
                         $respuesta = array('msg' => 'Contraseña incorrecta', 'icono' => 'warning');
@@ -39,6 +40,32 @@ class Admin extends Controller
     public function home()
     {
         $data['title'] = 'Green Mind Administrativo';
+        $data['pendientes'] = $this->model->getTotales(1);
+        $data['procesos'] = $this->model->getTotales(2);
+        $data['finalizados'] = $this->model->getTotales(3);
+        $data['productos'] = $this->model->getProductos();
         $this->views->getView('admin/administracion', "index", $data);
+    }
+
+    public function productosMinimos()
+    {
+        $data = $this->model->productosMinimos();
+        echo json_encode($data, JSON_UNESCAPED_UNICODE);
+        die();
+
+    }
+
+    public function topProductos()
+    {
+        $data = $this->model->topProductos();
+        echo json_encode($data, JSON_UNESCAPED_UNICODE);
+        die();
+
+    }
+
+    public function salir()
+    {
+        session_destroy();
+        header('Location: '. BASE_URL);
     }
 }
