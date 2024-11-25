@@ -137,11 +137,13 @@ function getListaCarrito() {
           res.productos.forEach(producto => {
               html += `<tr>
                               <td>
-                              <img class="img-thumbnail rounded-circle" src="${producto.imagen}" alt="" width="100">
+                              <img class="img-thumbnail rounded-circle" src="${base_url + producto.imagen}" alt="" width="100">
                               </td>
                               <td>${producto.nombre}</td>
                               <td><span class="badge bg-warning">${res.moneda + ' ' + producto.precio}</span></td>
-                              <td><span class="badge bg-primary">${producto.cantidad}</span></td>
+                              <td width="100">
+                              <input type="number" class="form-control agregarCantidad" id="${producto.id}" value="${producto.cantidad}">
+                              </td>
                               <td>${producto.subTotal}</td>
                               <td>
                               <button class="btn btn-danger btnDeletecart" type="button" prod="${producto.id}"> <i class="fas fa-times-circle"></i></button>
@@ -150,8 +152,8 @@ function getListaCarrito() {
           });
           tableListaCarrito.innerHTML = html;
           document.querySelector('#totalGeneral').textContent = res.total;
-
           btnEliminarCarrito();
+          cambiarCantidad();
       }
   }
 }
@@ -179,4 +181,25 @@ function eliminarListaCarrito(idProducto) {
       text: "PRODUCTO ELIMINADO DEL CARRITO",
       icon: "success"
     });
+}
+
+//cambiar la cantidad
+function cambiarCantidad(params) {
+  let listaCantidad = document.querySelectorAll('.agregarCantidad');
+  for (let i = 0; i < listaCantidad.length; i++) {
+      listaCantidad[i].addEventListener('change', function(){
+          let idProducto = listaCantidad[i].id;
+          let cantidad = listaCantidad[i].value;
+          incrementarCantidad(idProducto, cantidad);
+      })
+  }
+}
+
+function incrementarCantidad(idProducto, cantidad) {
+  for (let i = 0; i < listaCarrito.length; i++) {
+    if (listaCarrito[i]['idProducto'] == idProducto) {
+        listaCarrito[i].cantidad = cantidad;
+    }
+  }
+  localStorage.setItem('listaCarrito', JSON.stringify(listaCarrito));
 }
