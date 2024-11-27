@@ -1,4 +1,4 @@
-<?php include_once 'Views/template-principal/header.php'; ?>
+<?php include_once 'Views/template/header-principal.php'; ?>
 
     <!-- Open Content -->
     <section class="bg-light">
@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-5 mt-5">
                     <div class="card mb-3">
-                        <img class="card-img img-fluid" src="<?php echo $data['producto'] ['imagen']; ?>" alt="Card image cap" id="product-detail">
+                        <img class="card-img img-fluid" src="<?php echo BASE_URL . $data['producto'] ['imagen']; ?>" alt="Card image cap" id="product-detail">
                     </div>
                 </div>
                 <!-- col end -->
@@ -49,10 +49,10 @@
                                 </div>
                                 <div class="row pb-3">
                                     <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Comprar</button>
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Añadir</button>
                                     </div>
                                     <div class="col d-grid">
-                                        <button type="button" class="btn btn-success btn-lg" id="btnAddCart">Añadir</button>
+                                        <button type="button" class="btn btn-success btn-lg" id="btnAddCart">Comprar</button>
                                     </div>
                                 </div>
                             </form>
@@ -69,7 +69,7 @@
     <section class="py-5">
         <div class="container">
             <div class="row text-left p-2 pb-3">
-                <h4>Obras relacionadas</h4>
+                <h4>Productos relacionados</h4>
             </div>
 
             <!--Start Carousel Wrapper-->
@@ -79,7 +79,7 @@
                 <div class="p-2 pb-3">
                     <div class="product-wap card rounded-0">
                         <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="<?php echo $producto['imagen']; ?>">
+                            <img class="card-img rounded-0 img-fluid" src="<?php echo BASE_URL . $producto['imagen']; ?>">
                             <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
                                     <li><a class="btn btn-success text-white btnAddDeseo" href="#" prod="<?php echo $producto['id']; ?>"><i class="fas fa-heart"></i></a></li>
@@ -91,7 +91,6 @@
                         <div class="card-body">
                             <a href="<?php echo BASE_URL . 'principal/detail/' . $producto['id']; ?>" class="h3 text-decoration-none"><?php echo $producto['nombre']; ?></a>
                             <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>M/L/X/XL</li>
                                 <li class="pt-2">
                                     <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
                                     <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
@@ -122,8 +121,25 @@
     </section>
     <!-- End Article -->
 
+    <!-- bot de ayuda-->
+    <script SameSite="None; Secure" src="https://cdn.landbot.io/landbot-3/landbot-3.0.0.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var myLandbot = new Landbot.Popup({
+                configUrl: 'https://storage.googleapis.com/landbot.site/v3/H-2601227-A1Z38VJDG9KVRMQ2/index.json',
+               
+            });
 
-    <?php include_once 'Views/template-principal/footer.php'; ?>
+            
+            document.querySelector('.chatbot-icon').addEventListener('click', function() {
+                myLandbot.open(); 
+            });
+        });
+        
+    </script>
+
+
+    <?php include_once 'Views/template/footer-principal.php'; ?>
 
     <script src="<?php echo BASE_URL . 'assets/js/modulos/detail.js'; ?>"></script>
     

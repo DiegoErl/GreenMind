@@ -1,4 +1,4 @@
-<?php include_once 'Views/template-principal/header.php'; ?>
+<?php include_once 'Views/template/header-principal.php'; ?>
 
 
 
@@ -10,10 +10,7 @@
                 <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Pagos</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pendientes-tab" data-bs-toggle="tab" data-bs-target="#pendientes-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">pendientes</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="completados-tab" data-bs-toggle="tab" data-bs-target="#completados-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">completados</button>
+                <button class="nav-link" id="pendientes-tab" data-bs-toggle="tab" data-bs-target="#pendientes-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Pedidos</button>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
@@ -51,14 +48,51 @@
                                     <i class="fas fa-user"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="<?php echo BASE_URL . 'clientes/salir' ;?>"><i class="fas fa-times-circle"></i> Cerrar sesión</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo BASE_URL . 'clientes/salir'; ?>"><i class="fas fa-times-circle"></i> Cerrar sesión</a></li>
                                 </ul>
                             </div>
                             <div class="card-body text-center">
-                                <img class="img-thumbnail rounded-circle" src="<?php echo BASE_URL . 'assets/img/logo.png'; ?>" alt="" width="150">
+                                <img class="img-thumbnail rounded-circle" src="<?php echo BASE_URL . 'assets/images/minLogo.png'; ?>" alt="" width="150">
                                 <hr>
                                 <p> <?php echo $_SESSION['nombre']; ?> </p>
                                 <p> <i class="fas fa-envelope"></i> <?php echo $_SESSION['correo']; ?> </p>
+                                <!-- modal para cambiar contraseña -->
+                                <!-- Botón para abrir el modal de cambiar contraseña -->
+                                <button class="btn btn-primary mb-2" type="button" id="nuevaContra">Modificar contraseña</button>
+
+                                <!-- Modal para cambiar contraseña -->
+                                <div id="contraModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header bg-primary">
+                                                <h5 class="modal-title" id="titleModal"></h5>
+                                                <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                </button>
+                                            </div>
+                                            <form id="frmClave">
+                                                <div class="modal-body">
+                                                    <input type="hidden" id="id" name="id">
+                                                    
+                                                    <div class="form-group mb-2">
+                                                        <label for="nuevaClave">Nueva Contraseña</label>
+                                                        <input id="nuevaClave" class="form-control" type="password" name="nuevaClave" placeholder="Nueva Contraseña">
+                                                    </div>
+                                                    <div class="form-group mb-2">
+                                                        <label for="confirmarClave">Confirmar Contraseña</label>
+                                                        <input id="confirmarClave" class="form-control" type="password" name="confirmarClave" placeholder="Confirmar Contraseña">
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-primary" type="submit" id="btnAccion">Confirmar</button>
+                                                    <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Cancelar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- fin de modal para cambiar contraseña -->
                                 <div class="accordion" id="accordionExample">
                                     <div class="accordion-item">
                                         <h2 class="accordion-header">
@@ -80,7 +114,7 @@
                                         </h2>
                                         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
-                                                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                                Proximamente
                                             </div>
                                         </div>
                                     </div>
@@ -112,7 +146,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="completados-tab-pane" role="tabpanel" aria-labelledby="completados-tab" tabindex="0">...</div>
+
         </div>
 
     <?php } else { ?>
@@ -140,21 +174,21 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-6 col-lg-4 pb-5">
-                                <div class="h-100 py-5 services-icon-wap shadow">
+                                <div class="h-100 py-5 services-icon-wap shadow" id="estadoEnviado">
                                     <div class="h1 text-success text-center"><i class="fa fa-truck fa-lg"></i></div>
-                                    <h2 class="h5 mt-4 text-center">Enviado</h2>
+                                    <h2 class="h5 mt-4 text-center">Pendiente</h2>
                                 </div>
                             </div>
 
                             <div class="col-md-6 col-lg-4 pb-5">
-                                <div class="h-100 py-5 services-icon-wap shadow">
+                                <div class="h-100 py-5 services-icon-wap shadow" id="estadoProceso">
                                     <div class="h1 text-success text-center"><i class="fas fa-exchange-alt"></i></div>
                                     <h2 class="h5 mt-4 text-center">Proceso</h2>
                                 </div>
                             </div>
 
                             <div class="col-md-6 col-lg-4 pb-5">
-                                <div class="h-100 py-5 services-icon-wap shadow">
+                                <div class="h-100 py-5 services-icon-wap shadow" id="estadoCompletado">
                                     <div class="h1 text-success text-center"><i class="fa fa-percent"></i></div>
                                     <h2 class="h5 mt-4 text-center">Completado</h2>
                                 </div>
@@ -162,7 +196,7 @@
 
                             <div class="col-md-12">
                                 <div class="table-responsive">
-                                    <table class="table table-borderer table-striped table-hover align-middle" id="tablePedidos" style="width: 100;">
+                                    <table class="table table-borderer table-striped table-hover align-middle" id="tablePedidos" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>Producto</th>
@@ -183,112 +217,24 @@
             </div>
         </div>
 
-        <!-- Start Brands TAL VEZ LO BORRE PQ NO LO VOY A OCUPAR-->
-        <section class="bg-light py-5">
-            <div class="container my-4">
-                <div class="row text-center py-3">
-                    <div class="col-lg-6 m-auto">
-                        <h1 class="h1">Our Brands</h1>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            Lorem ipsum dolor sit amet.
-                        </p>
-                    </div>
-                    <div class="col-lg-9 m-auto tempaltemo-carousel">
-                        <div class="row d-flex flex-row">
-                            <!--Controls-->
-                            <div class="col-1 align-self-center">
-                                <a class="h1" href="#multi-item-example" role="button" data-bs-slide="prev">
-                                    <i class="text-light fas fa-chevron-left"></i>
-                                </a>
-                            </div>
-                            <!--End Controls-->
+        <!-- bot de ayuda-->
+        <script SameSite="None; Secure" src="https://cdn.landbot.io/landbot-3/landbot-3.0.0.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var myLandbot = new Landbot.Popup({
+                    configUrl: 'https://storage.googleapis.com/landbot.site/v3/H-2601227-A1Z38VJDG9KVRMQ2/index.json',
 
-                            <!--Carousel Wrapper-->
-                            <div class="col">
-                                <div class="carousel slide carousel-multi-item pt-2 pt-md-0" id="multi-item-example" data-bs-ride="carousel">
-                                    <!--Slides-->
-                                    <div class="carousel-inner product-links-wap" role="listbox">
-
-                                        <!--First slide-->
-                                        <div class="carousel-item active">
-                                            <div class="row">
-                                                <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_01.png" alt="Brand Logo"></a>
-                                                </div>
-                                                <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_02.png" alt="Brand Logo"></a>
-                                                </div>
-                                                <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_03.png" alt="Brand Logo"></a>
-                                                </div>
-                                                <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_04.png" alt="Brand Logo"></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--End First slide-->
-
-                                        <!--Second slide-->
-                                        <div class="carousel-item">
-                                            <div class="row">
-                                                <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_01.png" alt="Brand Logo"></a>
-                                                </div>
-                                                <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_02.png" alt="Brand Logo"></a>
-                                                </div>
-                                                <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_03.png" alt="Brand Logo"></a>
-                                                </div>
-                                                <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_04.png" alt="Brand Logo"></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--End Second slide-->
-
-                                        <!--Third slide-->
-                                        <div class="carousel-item">
-                                            <div class="row">
-                                                <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_01.png" alt="Brand Logo"></a>
-                                                </div>
-                                                <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_02.png" alt="Brand Logo"></a>
-                                                </div>
-                                                <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_03.png" alt="Brand Logo"></a>
-                                                </div>
-                                                <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_04.png" alt="Brand Logo"></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--End Third slide-->
-
-                                    </div>
-                                    <!--End Slides-->
-                                </div>
-                            </div>
-                            <!--End Carousel Wrapper-->
-
-                            <!--Controls-->
-                            <div class="col-1 align-self-center">
-                                <a class="h1" href="#multi-item-example" role="button" data-bs-slide="next">
-                                    <i class="text-light fas fa-chevron-right"></i>
-                                </a>
-                            </div>
-                            <!--End Controls-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--End Brands-->
+                });
 
 
-        <?php include_once 'Views/template-principal/footer.php'; ?>
+                document.querySelector('.chatbot-icon').addEventListener('click', function() {
+                    myLandbot.open();
+                });
+            });
+        </script>
+
+
+        <?php include_once 'Views/template/footer-principal.php'; ?>
 
         <script src="<?php echo BASE_URL . 'assets/DataTables/datatables.min.js'; ?>"></script>
 

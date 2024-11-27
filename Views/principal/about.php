@@ -1,4 +1,4 @@
-<?php include_once 'Views/template-principal/header.php'; ?>
+<?php include_once 'Views/template/header-principal.php'; ?>
 
 
 
@@ -6,15 +6,21 @@
         <div class="container">
             <div class="row align-items-center py-5">
                 <div class="col-md-8 text-white">
-                    <h1>About Us</h1>
+                    <h1>Sobre Nosotros</h1>
+                    <p></p>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    En nuestra tienda nos especializamos en ofrecer insumos agrícolas y herramientas que impulsan la productividad y calidad de los cultivos. 
+                    Nos dedicamos a brindar soluciones efectivas y sostenibles para agricultores y profesionales del campo. 
+                    A través de alianzas con proveedores líderes, ofrecemos fertilizantes orgánicos, herramientas de uso practico, y semillas de alta calidad, 
+                    diseñados para optimizar el rendimiento agrícola mientras cuidamos el medio ambiente. 
+
+                    <h2> <strong>Nuestro objetivo es ser un socio confiable en el desarrollo de tu proyecto agrícola, proporcionando productos que garantizan calidad, durabilidad, y resultados excepcionales. 
+                    ¡Estamos aquí para ayudarte a crecer y hacer más eficiente tu producción!</strong> </h2>
+                    
                     </p>
                 </div>
                 <div class="col-md-4">
-                    <img src="<?php echo BASE_URL; ?>assets/img/about-hero.svg" alt="About Hero">
+                    <img src="<?php echo BASE_URL; ?>assets/images/personas.png" alt="About Hero" width="500">
                 </div>
             </div>
         </div>
@@ -25,10 +31,9 @@
     <section class="container py-5">
         <div class="row text-center pt-5 pb-3">
             <div class="col-lg-6 m-auto">
-                <h1 class="h1">Our Services</h1>
+                <h1 class="h1">Nuestros Servicios</h1>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    Lorem ipsum dolor sit amet.
+                Trabajamos de la mano con nuestros clientes para proporcionar soluciones a medida, optimizando cada etapa de su producción.
                 </p>
             </div>
         </div>
@@ -70,10 +75,10 @@
         <div class="container my-4">
             <div class="row text-center py-3">
                 <div class="col-lg-6 m-auto">
-                    <h1 class="h1">Our Brands</h1>
+                    <h1 class="h1">Marcas Asociadas</h1>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        Lorem ipsum dolor sit amet.
+                    Nos enorgullecemos de asociarnos con marcas reconocidas que garantizan calidad y fiabilidad en cada producto. 
+                    Desde fertilizantes orgánicos hasta tecnología agrícola avanzada, nuestras marcas asociadas comparten nuestro compromiso con la innovación y la sostenibilidad.
                     </p>
                 </div>
                 <div class="col-lg-9 m-auto tempaltemo-carousel">
@@ -96,54 +101,54 @@
                                     <div class="carousel-item active">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_01.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/images/Marcas/M1.png" alt="Brand Logo"></a>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_02.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/images/Marcas/M2.png" alt="Brand Logo"></a>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_03.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/images/Marcas/M3.png" alt="Brand Logo"></a>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_04.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/images/Marcas/M4.png" alt="Brand Logo"></a>
                                             </div>
                                         </div>
                                     </div>
                                     <!--End First slide-->
 
                                     <!--Second slide-->
-                                    <div class="carousel-item">
+                                    <div class="carousel-item active">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_01.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/images/Marcas/M1.png" alt="Brand Logo"></a>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_02.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/images/Marcas/M2.png" alt="Brand Logo"></a>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_03.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/images/Marcas/M3.png" alt="Brand Logo"></a>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_04.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/images/Marcas/M4.png" alt="Brand Logo"></a>
                                             </div>
                                         </div>
                                     </div>
                                     <!--End Second slide-->
 
                                     <!--Third slide-->
-                                    <div class="carousel-item">
+                                    <div class="carousel-item active">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_01.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/images/Marcas/M1.png" alt="Brand Logo"></a>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_02.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/images/Marcas/M2.png" alt="Brand Logo"></a>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_03.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/images/Marcas/M3.png" alt="Brand Logo"></a>
                                             </div>
                                             <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/img/brand_04.png" alt="Brand Logo"></a>
+                                                <a href="#"><img class="img-fluid brand-img" src="<?php echo BASE_URL; ?>assets/images/Marcas/M4.png" alt="Brand Logo"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -169,8 +174,24 @@
     </section>
     <!--End Brands-->
 
+    <!-- bot de ayuda-->
+    <script SameSite="None; Secure" src="https://cdn.landbot.io/landbot-3/landbot-3.0.0.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var myLandbot = new Landbot.Popup({
+                configUrl: 'https://storage.googleapis.com/landbot.site/v3/H-2601227-A1Z38VJDG9KVRMQ2/index.json',
+               
+            });
 
-    <?php include_once 'Views/template-principal/footer.php'; ?>
+            
+            document.querySelector('.chatbot-icon').addEventListener('click', function() {
+                myLandbot.open(); 
+            });
+        });
+        
+    </script>
+
+    <?php include_once 'Views/template/footer-principal.php'; ?>
 </body>
 
 </html>

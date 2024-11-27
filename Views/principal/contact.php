@@ -1,4 +1,4 @@
-<?php include_once 'Views/template-principal/header.php'; ?>
+<?php include_once 'Views/template/header-principal.php'; ?>
 
 
     <!-- Start Content Page -->
@@ -6,8 +6,8 @@
         <div class="col-md-6 m-auto text-center">
             <h1 class="h1">Contactanos :D</h1>
             <p>
-                Proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                Lorem ipsum dolor sit amet.
+            ¡Nos encantaría saber de ti! Si tienes alguna pregunta, comentario o necesitas más información sobre nuestros productos y servicios, no dudes en ponerte en contacto con nosotros. 
+            Nuestro equipo está aquí para ayudarte y te responderá lo más pronto posible.
             </p>
         </div>
     </div>
@@ -18,16 +18,16 @@
             <form class="col-md-9 m-auto" role="form" id="frmContactos">
                 <div class="row">
                     <div class="form-group col-md-6 mb-3">
-                        <label for="nombre">Name</label>
+                        <label for="nombre">Nombre</label>
                         <input type="text" class="form-control mt-1" id="nombre" placeholder="Name" required>
                     </div>
                     <div class="form-group col-md-6 mb-3">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control mt-1" id="email" placeholder="Email" required>
+                        <label for="email">Correo</label>
+                        <input type="email" class="form-control mt-1" id="email" value=" greenminditiz@gmail.com" placeholder="Email" required readonly>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="inputmessage">Message</label>
+                    <label for="inputmessage">Mensaje</label>
                     <textarea class="form-control mt-1" id="message" placeholder="Message" rows="8"></textarea>
                 </div>
                 <div class="row">
@@ -40,8 +40,25 @@
     </div>
     <!-- End Contact -->
 
+    <!-- bot de ayuda-->
+    <script SameSite="None; Secure" src="https://cdn.landbot.io/landbot-3/landbot-3.0.0.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var myLandbot = new Landbot.Popup({
+                configUrl: 'https://storage.googleapis.com/landbot.site/v3/H-2601227-A1Z38VJDG9KVRMQ2/index.json',
+               
+            });
 
-    <?php include_once 'Views/template-principal/footer.php'; ?>
+            
+            document.querySelector('.chatbot-icon').addEventListener('click', function() {
+                myLandbot.open(); 
+            });
+        });
+        
+    </script>
+
+
+    <?php include_once 'Views/template/footer-principal.php'; ?>
 
     <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
     <script src="<?php echo BASE_URL . 'assets/js/modulos/contactos.js';?>"></script>
